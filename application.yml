@@ -1,0 +1,29 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: API-GATEWAY-SERVICE
+  cloud:
+    gateway:
+      routes:
+        - id: first1
+          uri: lb://futurex-course-app
+          predicates:
+            - Path=/first/**
+          filters:
+            - StripPrefix=1
+
+        - id: second2
+          uri: lb://fc-catalog-service
+          predicates:
+            - Path=/second/**
+          filters:
+            - StripPrefix=1
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      instance:
+      preferIpAddress: true
