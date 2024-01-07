@@ -18,6 +18,13 @@ spring:
           filters:
             - StripPrefix=1
 
+        - id: third3
+          uri: lb://uber-driver-service
+          predicates:
+            - Path=/third/**
+          filters:
+            - StripPrefix=1
+
 
 eureka:
   client:
