@@ -27,3 +27,14 @@ eureka:
       defaultZone: http://localhost:8761/eureka
       instance:
       preferIpAddress: true
+
+
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: driver
+        url: /driver/v3/api-docs
+      - name: user
+        url: /user/v3/api-docs
+     
