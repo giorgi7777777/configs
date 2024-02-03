@@ -5,13 +5,6 @@ spring:
     gateway:
       routes:
 
-        - id: second2
-          uri: lb://fc-catalog-service
-          predicates:
-            - Path=/second/**
-          filters:
-            - StripPrefix=1
-
         - id: uber-driver-service
           uri: lb://uber-driver-service
           predicates:
