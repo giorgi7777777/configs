@@ -1,6 +1,16 @@
 server:
   port: 2001
 
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      instance:
+      preferIpAddress: true
+
+
+
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
