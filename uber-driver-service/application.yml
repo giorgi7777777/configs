@@ -11,12 +11,12 @@ eureka:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/driverdb
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://localhost:5435/uberdriver
+    username: user
+    password: password
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
 
   security:
