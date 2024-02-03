@@ -10,7 +10,7 @@ spring:
           predicates:
             - Path=/driver/**
           filters:
-            - StripPrefix=1
+            - RewritePath=driver/(?<path>.*), /$\{path}
 
 
         - id: uber-user-service
@@ -18,7 +18,7 @@ spring:
           predicates:
             - Path=/user/**
           filters:
-            - StripPrefix=1
+            - RewritePath=user/(?<path>.*), /$\{path}
 
 
 eureka:
