@@ -1,0 +1,37 @@
+server:
+  port: 2001
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5435/uberuser
+    username: user
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8082/realms/UberClient
+          jwk-set-uri: http://localhost:8082/realms/UberClient/protocol/openid-connect/certs
+        opaquetoken:
+          client-id: admin-cli
+
+
+keycloak:
+  auth-server-url: http://localhost:8082
+  client-id: admin-cli
+  client-secret: qHfckuhijo4xvCAlGLbjEMcrG9wzZoxh
+
+keycloak-admin:
+  username: admin
+  password: pass123
+  realm: master
+
+keycloak-user:
+  UberClient-realm-tokenUri: http://localhost:8082/realms/UberClient/protocol/openid-connect/token
+  user-realm: UberClient
