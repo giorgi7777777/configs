@@ -4,6 +4,12 @@ spring:
   cloud:
     gateway:
       routes:
+       - id: openapi
+        uri: ${_OPENAPI_URL}
+        predicates:
+           - Path=/v3/api-docs/**
+        filters:
+            - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
 
         - id: uber-driver-service
           uri: lb://uber-driver-service
