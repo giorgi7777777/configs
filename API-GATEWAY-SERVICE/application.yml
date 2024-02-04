@@ -2,7 +2,13 @@ server:
   port: 8000
 spring:
   cloud:
+    discovery:
+      enabled: true
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
        - id: openapi
         uri: http://localhost:8000/
